@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment list</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+
+        <table class="table table-striped shadow p-4" >
+    <caption class="caption-top text-primary ">List of all Appointments</caption>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>phone</th>
+        <th>Place</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Department</th>
+        <th>Doctor</th>
+        <th>Action</th>
+    </tr>
+    
+    {%for a in appointments%}
+    
+    <div>
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{a.patientName}}</td>
+        <td>{{a.email}}</td>
+        <td>{{a.phone}}</td>
+        <td>{{a.place}}</td>
+        <td>{{a.date}}</td>
+        <td>{{a.time}}</td>
+        <td>{{a.department}}</td>
+        <td>{{a.doctorName}}</td>
+        <td> 
+            <a href="" class="btn btn-outline-success">Accept</a>
+            <a href="" class="btn btn-outline-danger">Reject</a>
+        </td>
+
+        
+    
+    
+    </tr>
+    {%endfor%}
+    </table>
+    </div>
+    </div>
+    
+    
+</body>
+</html>

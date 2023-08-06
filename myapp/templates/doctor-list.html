@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoctorList</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+
+        <table class="table table-striped p-4 shadow">
+    <caption class="caption-top text-primary">List of all Doctors</caption>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Department</th>
+        <th>Qualification</th>
+        <th>Image</th>
+        <th>Action</th>
+    </tr>
+    
+    {%for d in doctors%}
+    
+    <div>
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{d.name}}</td>
+        <td>{{d.department}}</td>
+        <td>{{d.qualification}}</td>
+        <td>
+            {%if d.profile_pic%}
+            <img src="http://127.0.0.1:8000/{{d.profile_pic}}" height="200px" width="250px" alt="">
+            {%endif%}
+        </td>
+    
+    <td>
+        <a href="{%url 'docdetail' d.id%}" class="btn btn-info">View</a>
+        
+    </td>
+
+    </tr>
+    {%endfor%}
+    </table>
+    </div>
+    </div>
+    
+    
+</body>
+</html>
